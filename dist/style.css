@@ -2,8 +2,96 @@
   margin: 0;
   padding: 0;
   font-size: 100%;
+  font-family: "'Lora', serif";
 }
 
 body {
   background-color: hsl(0, 0%, 100%);
+}
+
+header {
+  margin-top: 1.4375rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+header .logo {
+  margin-left: 0.1rem;
+}
+header .logo img {
+  width: 3rem;
+}
+header .header-right {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+  margin-left: auto;
+}
+header .header-right .fonts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header .header-right .fonts p {
+  font-size: 1.3rem;
+}
+header .header-right .fonts img {
+  transform: scale(40%);
+  width: 3rem;
+  cursor: pointer;
+}
+header .header-right .line {
+  width: 2px;
+  height: 2.5rem;
+  background-color: hsl(0, 0%, 91%);
+}
+header .header-right .toggle {
+  margin-left: 0.8rem;
+  margin-top: 0.15rem;
+}
+header .header-right .toggle .toggle-bar {
+  display: inline-block;
+  width: 2.5rem;
+  height: 1.25rem;
+}
+header .header-right .toggle .toggle-bar input {
+  display: none;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+header .header-right .toggle .toggle-bar input:checked + span::before {
+  transform: translateX(1.25rem);
+}
+header .header-right .toggle .toggle-bar input:checked + span {
+  background-color: hsl(274, 82%, 60%);
+}
+header .header-right .toggle .toggle-bar span {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background-color: hsl(0, 0%, 51%);
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.2s ease all;
+}
+header .header-right .toggle .toggle-bar span::before {
+  content: "";
+  display: block;
+  width: 40%;
+  height: 80%;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 50%;
+  margin-left: 0.15rem;
+  position: relative;
+  top: 0.1rem;
+  transition: 0.2s ease all;
+}
+header .header-right .moon {
+  margin-top: 0.15rem;
+}
+header .header-right .moon img {
+  width: 1.5rem;
+  margin-bottom: 0.2rem;
+  margin-left: 0.2rem;
 }/*# sourceMappingURL=style.css.map */
