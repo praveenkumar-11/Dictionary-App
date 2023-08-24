@@ -1,5 +1,6 @@
+
 header{
-    margin-top: 1.4375rem;
+    margin-top: -2rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -16,15 +17,57 @@ header{
         margin-left: auto;
         .fonts{
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            p{
-                font-size: 1.3rem;
-            }
-            img{
-                transform: scale(40%);
-                width: 3rem;
+            position: relative;
+            top: 3.5rem;
+            .current-font-and-icon{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
                 cursor: pointer;
+                border: none;
+                outline: none;
+                background-color: transparent;
+                p{
+                    font-size: 1.3rem;
+                }
+                img{
+                    transform: scale(40%);
+                    width: 3rem;
+                }
+            }
+            .drop-down-content{
+                display: flex;
+                opacity: 0;
+                flex-direction: column;
+                text-align: center;
+                font-size: 1.2rem;
+                background-color: map-get($primary, "White");
+                border-radius: 5px;
+                width: 8rem;
+                height: 7rem;
+                box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+                z-index: 5;
+                gap: 0.5rem;
+                span{
+                    cursor: pointer;
+                    width: 100%;
+                    margin-block: auto;
+                    &:hover{
+                        color: map-get($primary, "Dark-Violet");
+                    }
+                }
+                .serif{
+                    font-family: $serif;
+                }
+                .sans-serif{
+                    font-family: $sans-serif;
+                }
+                .mono{
+                    font-family: $mono;
+                }
             }
         }
         .line{

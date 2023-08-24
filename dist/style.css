@@ -1,8 +1,15 @@
+:export {
+  serif: "Lora", serif;
+  sans-serif: "Inter", sans-serif;
+  mono: "Inconsolata", monospace;
+}
+
 *, *::before, *::after {
   margin: 0;
   padding: 0;
   font-size: 100%;
-  font-family: "'Lora', serif";
+  box-sizing: border-box;
+  font-family: "Lora", serif;
 }
 
 body {
@@ -10,7 +17,7 @@ body {
 }
 
 header {
-  margin-top: 1.4375rem;
+  margin-top: -2rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -29,16 +36,58 @@ header .header-right {
 }
 header .header-right .fonts {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  top: 3.5rem;
 }
-header .header-right .fonts p {
+header .header-right .fonts .current-font-and-icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+header .header-right .fonts .current-font-and-icon p {
   font-size: 1.3rem;
 }
-header .header-right .fonts img {
+header .header-right .fonts .current-font-and-icon img {
   transform: scale(40%);
   width: 3rem;
+}
+header .header-right .fonts .drop-down-content {
+  display: flex;
+  opacity: 0;
+  flex-direction: column;
+  text-align: center;
+  font-size: 1.2rem;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 5px;
+  width: 8rem;
+  height: 7rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  z-index: 5;
+  gap: 0.5rem;
+}
+header .header-right .fonts .drop-down-content span {
   cursor: pointer;
+  width: 100%;
+  margin-block: auto;
+}
+header .header-right .fonts .drop-down-content span:hover {
+  color: hsl(274, 82%, 60%);
+}
+header .header-right .fonts .drop-down-content .serif {
+  font-family: "Lora", serif;
+}
+header .header-right .fonts .drop-down-content .sans-serif {
+  font-family: "Inter", sans-serif;
+}
+header .header-right .fonts .drop-down-content .mono {
+  font-family: "Inconsolata", monospace;
 }
 header .header-right .line {
   width: 2px;

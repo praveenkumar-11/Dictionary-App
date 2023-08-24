@@ -1,5 +1,9 @@
-$font-family: (
-    "Mono": "'Inconsolata', monospace",
-    "Sans-Serif": "'Inter', sans-serif",
-    "Serif": "'Lora', serif"
-);
+$mono: 'Inconsolata', monospace;
+$sans-serif: 'Inter', sans-serif;
+$serif: 'Lora', serif;
+
+:export{
+    serif: $serif;
+    sans-serif: $sans-serif;
+    mono: $mono;
+}
