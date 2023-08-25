@@ -15,10 +15,13 @@ const font_fam= [font_styles.serif, font_styles.sans_serif, font_styles.mono];
 drop_down.addEventListener("focus", (event)=>{
     event.preventDefault();
     drop_down_con.style.opacity= "100";
+    drop_down_con.style.zIndex= "20";
 });
 
-drop_down.addEventListener("blur", ()=>{
+drop_down.addEventListener("blur", (event)=>{
+    event.preventDefault();
     drop_down_con.style.opacity= "0";
+    drop_down_con.style.zIndex= "-1";
 });
 
 for(let i=0; i<fonts.length; i++){

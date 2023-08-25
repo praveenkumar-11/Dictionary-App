@@ -3,3 +3,38 @@
 @import "reset";
 @import "header";
 
+.search-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    .search-box{
+        z-index: 10;
+        height: 4rem;
+        width: 100%;
+        border: none;
+        background-color: map-get($gray, "Gray-150");
+        font-size: 1.2rem;
+        font-weight: map-get($weights, "Black");
+        letter-spacing: 0.05rem;
+        border-radius: 15px;
+        padding-left: 1rem;
+        padding-right: 3rem;
+        &:focus{
+            outline: 2px solid map-get($primary, "Dark-Violet");
+        }
+    }
+    .search-btn{
+        z-index: 15;
+        border: none;
+        background-color: transparent;
+        outline: none;
+        img{
+            position: absolute;
+            transform: translate(-3rem, -1rem);
+            width: 2rem;
+            cursor: pointer;
+        }
+    }
+}
