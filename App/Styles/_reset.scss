@@ -7,4 +7,6 @@
 }
 body{
     background-color: map-get($primary, "White");
+    margin-inline: auto;
+    width: min(800px, 90%);
 }

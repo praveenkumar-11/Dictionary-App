@@ -5,7 +5,6 @@ header{
     flex-direction: row;
     align-items: center;
     .logo{
-        margin-left: 0.1rem;
         img{
             width: 3rem;
         }
@@ -13,12 +12,11 @@ header{
     .header-right{
         display: flex;
         align-items: center;
-        margin-right: 1rem;
+        margin-right: 1px;
         margin-left: auto;
         .fonts{
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
             position: relative;
             top: 3.5rem;
@@ -26,6 +24,8 @@ header{
                 display: flex;
                 flex-direction: row;
                 align-items: center;
+                justify-content: flex-end;
+                width: 100%;
                 cursor: pointer;
                 border: none;
                 outline: none;
@@ -47,6 +47,7 @@ header{
                 border-radius: 5px;
                 width: 8rem;
                 height: 7rem;
+                margin-left: 2rem;
                 box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
                 z-index: 5;
                 gap: 0.5rem;
