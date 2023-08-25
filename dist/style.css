@@ -1,9 +1,3 @@
-:export {
-  serif: "Lora", serif;
-  sans-serif: "Inter", sans-serif;
-  mono: "Inconsolata", monospace;
-}
-
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -51,9 +45,6 @@ header .header-right .fonts .current-font-and-icon {
   outline: none;
   background-color: transparent;
 }
-header .header-right .fonts .current-font-and-icon p {
-  font-size: 1.3rem;
-}
 header .header-right .fonts .current-font-and-icon img {
   transform: scale(40%);
   width: 3rem;
@@ -63,7 +54,6 @@ header .header-right .fonts .drop-down-content {
   opacity: 0;
   flex-direction: column;
   text-align: center;
-  font-size: 1.2rem;
   background-color: hsl(0, 0%, 100%);
   border-radius: 5px;
   width: 8rem;
@@ -81,13 +71,14 @@ header .header-right .fonts .drop-down-content span:hover {
   color: hsl(274, 82%, 60%);
 }
 header .header-right .fonts .drop-down-content .serif {
-  font-family: "Lora", serif;
+  font-family: "Lora", serif !important;
 }
 header .header-right .fonts .drop-down-content .sans-serif {
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", sans-serif !important;
 }
 header .header-right .fonts .drop-down-content .mono {
-  font-family: "Inconsolata", monospace;
+  font-family: "Inconsolata", monospace !important;
+  font-size: 1.2rem;
 }
 header .header-right .line {
   width: 2px;
@@ -97,6 +88,7 @@ header .header-right .line {
 header .header-right .toggle {
   margin-left: 0.8rem;
   margin-top: 0.15rem;
+  margin-right: 0.5rem;
 }
 header .header-right .toggle .toggle-bar {
   display: inline-block;
@@ -117,23 +109,25 @@ header .header-right .toggle .toggle-bar input:checked + span {
 }
 header .header-right .toggle .toggle-bar span {
   display: block;
-  height: 100%;
-  width: 100%;
+  height: 1.25rem;
+  width: 2.5rem;
   background-color: hsl(0, 0%, 51%);
   border-radius: 15px;
   cursor: pointer;
   transition: 0.2s ease all;
+  position: absolute;
+  top: 2.3rem;
 }
 header .header-right .toggle .toggle-bar span::before {
   content: "";
   display: block;
-  width: 40%;
-  height: 80%;
+  width: 1rem;
+  height: 1rem;
   background-color: hsl(0, 0%, 100%);
   border-radius: 50%;
+  position: absolute;
+  margin-top: 0.15rem;
   margin-left: 0.15rem;
-  position: relative;
-  top: 0.1rem;
   transition: 0.2s ease all;
 }
 header .header-right .moon {

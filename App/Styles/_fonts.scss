@@ -1,9 +1,3 @@
 $mono: 'Inconsolata', monospace;
 $sans-serif: 'Inter', sans-serif;
 $serif: 'Lora', serif;
-
-:export{
-    serif: $serif;
-    sans-serif: $sans-serif;
-    mono: $mono;
-}
