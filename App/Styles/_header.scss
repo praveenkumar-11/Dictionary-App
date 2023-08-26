@@ -34,8 +34,8 @@ header{
                     //font-size: 1.3rem;
                 } */
                 img{
-                    transform: scale(40%);
-                    width: 3rem;
+                    width: 1.3rem;
+                    margin-inline: 1rem;
                 }
             }
             .drop-down-content{
@@ -78,7 +78,6 @@ header{
         }
         .toggle{
             margin-left: 0.8rem;
-            margin-top: 0.15rem;
             margin-right: 0.5rem;
             .toggle-bar{
                 display: inline-block;
@@ -109,7 +108,7 @@ header{
                     cursor: pointer;
                     transition: 0.2s ease all;
                     position: absolute;
-                    top: 2.3rem;
+                    top: 1.55rem;
                     &::before{
                         content: "";
                         display: block;
@@ -131,7 +130,7 @@ header{
             }
         }
         .moon{
-            margin-top: 0.15rem;
+            margin-top: 0.35rem;
             img{
                 width: 1.5rem;
                 margin-bottom: 0.2rem;

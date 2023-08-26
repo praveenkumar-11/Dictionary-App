@@ -38,3 +38,50 @@
         }
     }
 }
+
+
+//Main content
+main{
+    .main-top{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1rem;
+        .word-left{
+            margin-left: 0;
+            margin-right: auto;
+            .word{
+                font-size: 2rem;
+                font-weight: map-get($weights, "Bold");
+            }
+            .phonetic{
+                color: map-get($primary, "Dark-Violet");
+            }
+        }
+        .word-right{
+            background-color: map-get($primary, "Light-Violet");
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            text-align: center;
+            align-items: center;
+            cursor: pointer;
+            &:hover{
+                background-color: map-get($primary, "Dark-Violet");
+            }
+            &:hover > img{
+                filter: brightness(100);
+            }
+            img{
+                width: 1.3rem;
+                height: 100%;
+                margin-left: 0.3rem;
+            }
+            audio{
+
+            }
+        }
+    }
+}
+
+
