@@ -1,0 +1,33 @@
+@import "mixins";
+
+.meanings{
+    margin-top: 1.5rem;
+    .heading-noun{
+        @include headings;
+        .part-of-speech-noun{
+            margin-right: 2rem;
+            font-size: 1.5rem;
+        }
+        hr{
+            width: 100%;
+            height: 1px;
+            background-color: map-get($gray, "Gray-200");
+            margin-top: 0.5rem;
+            border: none;
+        
+        }
+    }
+    .meanings-part{
+        margin-top: 1.5rem;
+        .meaning{
+            @include meaning;
+        }
+            .list-of-meanings{
+                margin-top: 1rem;
+                font-size: 5rem;
+                li{
+                    @include meanings-list;
+                }
+            }
+    }
+}

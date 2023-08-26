@@ -5,6 +5,7 @@ async function dictionary(){
     const audio_div= document.querySelector(".word-right");
     const audio= document.querySelector(".audio");
     const word= inp.value;
+
     console.log(word);
 
     const dict= await fetch("https://api.dictionaryapi.dev/api/v2/entries/en/"+word);
@@ -34,7 +35,24 @@ async function dictionary(){
     });
     window.addEventListener("unhandledrejection", (err)=>{
         console.log(err);
-    })
+    });
+
+
+    //Noun Part
+    const part_of_spch= document.querySelector(".part-of-speech-noun");
+    const meanings= document.querySelector(".list-of-meanings");
+    while(meanings.hasChildNodes()){
+        meanings.removeChild(meanings.firstChild);
+    }
+    part_of_spch.innerHTML= response[0].meanings[0].partOfSpeech;
+    
+    for(let i=0 ; i<response[0].meanings[0].definitions.length ; i++){
+        const li= document.createElement("li");
+        const li_text= document.createTextNode(response[0].meanings[0].definitions[i].definition);
+        li.appendChild(li_text);
+        meanings.appendChild(li);
+    }
+    
 }
 
 export default dictionary;

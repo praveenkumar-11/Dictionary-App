@@ -5,6 +5,9 @@
     box-sizing: border-box;
     font-family: $serif;
 }
+*::selection{
+    background-color: map-get($primary, "Light-Violet");
+}
 body{
     background-color: map-get($primary, "White");
     margin-inline: auto;
