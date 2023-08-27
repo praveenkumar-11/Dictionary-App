@@ -6,6 +6,7 @@ async function dictionary(){
     const audio= document.querySelector(".audio");
     const word= inp.value;
 
+    inp.blur();
     console.log(word);
 
     const dict= await fetch("https://api.dictionaryapi.dev/api/v2/entries/en/"+word);
@@ -34,7 +35,7 @@ async function dictionary(){
             audio.play(); 
     });
     window.addEventListener("unhandledrejection", (err)=>{
-        console.log(err);
+        console.log(err.reason);
     });
 
 
@@ -51,6 +52,50 @@ async function dictionary(){
         const li_text= document.createTextNode(response[0].meanings[0].definitions[i].definition);
         li.appendChild(li_text);
         meanings.appendChild(li);
+    }
+
+    //Verb Part
+    const part_of_spch_verb= document.querySelector(".part-of-speech-verb");
+    const meanings_verb= document.querySelector(".list-of-meanings-verb");
+
+    if(typeof(response[0].meanings[1]) == "undefined"){
+        if(response[0].meanings[1].partOfSpeech == ""){
+            part_of_spch_verb.parentElement.parentElement.style.display= "none";
+        }
+    }
+    else{
+
+        part_of_spch_verb.innerHTML= response[0].meanings[1].partOfSpeech;
+
+        while(meanings_verb.hasChildNodes()){
+            meanings_verb.removeChild(meanings_verb.firstChild);
+        }
+        
+        for(let i=0 ; i<response[0].meanings[1].definitions.length ; i++){
+            const li_verb= document.createElement("li");
+            const li_text_verb= document.createTextNode(response[0].meanings[1].definitions[i].definition);
+            li_verb.appendChild(li_text_verb);
+            meanings_verb.appendChild(li_verb);
+        }
+            
+        const ex= document.querySelector(".example");
+        for(let i=0 ; i<response[0].meanings[1].definitions.length ; i++){
+            if(response[0].meanings[1].definitions[i].example != ""){
+                ex.innerHTML= response[0].meanings[0].definitions[i].example;
+            }
+        }
+    }
+
+
+    const syn= document.querySelector(".synonym-part span");
+    for(let i=0 ; i<response[0].meanings[0].definitions.length ; i++){
+        alert(response[0].meanings[0].definitions[i].synonyms);
+        if(response[0].meanings[0].definitions[i].synonyms != ""){
+            syn.innerHTML= response[0].meanings[0].definitions[i].synonyms;
+        }
+        else{
+            syn.innerHTML= response[0].meanings[0].synonyms[0];
+        }
     }
     
 }

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -147,40 +148,130 @@ header .header-right .moon img {
   margin-left: 0.2rem;
 }
 
-.meanings {
-  margin-top: 1.5rem;
-}
-.meanings .heading-noun {
+.heading-noun {
   display: flex;
   flex-direction: row;
   align-items: center;
   text-align: left;
-}
-.meanings .heading-noun .part-of-speech-noun {
   margin-right: 2rem;
   font-size: 1.5rem;
+  margin-top: 1.5rem;
 }
-.meanings .heading-noun hr {
+.heading-noun .part-of-speech-noun {
+  margin-right: 1rem;
+}
+.heading-noun hr {
   width: 100%;
   height: 1px;
   background-color: hsl(0, 0%, 91%);
   margin-top: 0.5rem;
   border: none;
 }
-.meanings .meanings-part {
+
+.meanings-part {
   margin-top: 1.5rem;
 }
-.meanings .meanings-part .meaning {
+.meanings-part .meaning {
   font-size: 1.3rem;
 }
-.meanings .meanings-part .list-of-meanings {
+.meanings-part .list-of-meanings {
   margin-top: 1rem;
-  font-size: 5rem;
 }
-.meanings .meanings-part .list-of-meanings li {
+.meanings-part .list-of-meanings li {
   font-size: 1.1rem;
   margin-top: 0.5rem;
   margin-left: 1rem;
+  list-style-type: none;
+  justify-content: left;
+  text-align: left;
+}
+.meanings-part .list-of-meanings li::before {
+  content: "•";
+  color: hsl(274, 82%, 60%);
+  font-size: 1.2rem;
+  position: relative;
+  right: 1rem;
+  top: 0.2rem;
+}
+
+.synonym-part {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  margin-top: 1.5rem;
+}
+.synonym-part h4 {
+  color: hsl(0, 0%, 51%);
+  margin-right: 1rem;
+  font-size: 1.2rem;
+}
+.synonym-part span {
+  color: hsl(274, 82%, 60%);
+}
+
+.verb-section .heading-verb {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+  margin-right: 2rem;
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+}
+.verb-section .heading-verb .part-of-speech-verb {
+  margin-right: 1rem;
+}
+.verb-section .heading-verb hr {
+  width: 100%;
+  height: 1px;
+  background-color: hsl(0, 0%, 91%);
+  margin-top: 0.5rem;
+  border: none;
+}
+.verb-section .meanings-part-verb {
+  margin-top: 1.5rem;
+}
+.verb-section .meanings-part-verb .meaning {
+  font-size: 1.3rem;
+}
+.verb-section .meanings-part-verb .list-of-meanings-verb {
+  margin-top: 1rem;
+}
+.verb-section .meanings-part-verb .list-of-meanings-verb li {
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  list-style-type: none;
+  justify-content: left;
+  text-align: left;
+}
+.verb-section .meanings-part-verb .list-of-meanings-verb li::before {
+  content: "•";
+  color: hsl(274, 82%, 60%);
+  font-size: 1.2rem;
+  position: relative;
+  right: 1rem;
+  top: 0.2rem;
+}
+.verb-section .example-part {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  margin-top: 1.5rem;
+}
+.verb-section .example-part h4 {
+  color: hsl(0, 0%, 51%);
+  margin-right: 1rem;
+  font-size: 1.2rem;
+}
+
+.final-bottom-margin {
+  width: 100%;
+  height: 1px;
+  background-color: hsl(0, 0%, 91%);
+  margin-top: 0.5rem;
+  border: none;
+  margin-block: 1.5rem;
 }
 
 .search-bar {
@@ -221,6 +312,7 @@ header .header-right .moon img {
 
 main .main-top {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   margin-top: 1.5rem;

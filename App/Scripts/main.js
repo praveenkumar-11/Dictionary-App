@@ -8,3 +8,8 @@ drop_down_function();
 const search_btn= document.querySelector(".search-btn");
 const search_box= document.querySelector(".search-box");
 search_box.addEventListener("change", dictionary);
+
+
+window.addEventListener("load", ()=>{
+   search_box.focus(); 
+});
