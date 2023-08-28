@@ -82,16 +82,16 @@ function elm_fact(resp, i){
 
     const section= document.createElement("section");
     section.setAttribute("class", "main-section");
-    section.setAttribute("class", "section-"+i);
+    section.setAttribute("class", "section-wrapper");
     const section_2= document.createElement("section");
-    section_2.setAttribute("class", "heading-section-"+i);
+    section_2.setAttribute("class", "heading-section");
 
     const h3= document.createElement("h3");
     h3.innerHTML= resp[0].meanings[i].partOfSpeech;
 
     const hr= document.createElement("hr");
     const div_1= document.createElement("div");
-    div_1.setAttribute("class", "div-"+i);
+    div_1.setAttribute("class", "meaning-section");
 
     const p= document.createElement("p");
     p.innerHTML= "Meaning";
@@ -101,7 +101,7 @@ function elm_fact(resp, i){
 
 
     const div_2= document.createElement("div");
-    div_2.setAttribute("class", "second-div-"+i);
+    div_2.setAttribute("class", "extras-section");
     const h4= document.createElement("h4");
     const span= document.createElement("span");
     get_syn_ant(resp, i, h4, span);

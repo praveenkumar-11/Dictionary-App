@@ -148,7 +148,7 @@ header .header-right .moon img {
   margin-left: 0.2rem;
 }
 
-.heading-noun {
+.heading-section {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -157,10 +157,10 @@ header .header-right .moon img {
   font-size: 1.5rem;
   margin-top: 1.5rem;
 }
-.heading-noun .part-of-speech-noun {
+.heading-section h3 {
   margin-right: 1rem;
 }
-.heading-noun hr {
+.heading-section hr {
   width: 100%;
   height: 1px;
   background-color: hsl(0, 0%, 91%);
@@ -168,16 +168,16 @@ header .header-right .moon img {
   border: none;
 }
 
-.meanings-part {
+.meaning-section {
   margin-top: 1.5rem;
 }
-.meanings-part .meaning {
+.meaning-section p {
   font-size: 1.3rem;
 }
-.meanings-part .list-of-meanings {
+.meaning-section ul {
   margin-top: 1rem;
 }
-.meanings-part .list-of-meanings li {
+.meaning-section ul li {
   font-size: 1.1rem;
   margin-top: 0.5rem;
   margin-left: 1rem;
@@ -185,7 +185,7 @@ header .header-right .moon img {
   justify-content: left;
   text-align: left;
 }
-.meanings-part .list-of-meanings li::before {
+.meaning-section ul li::before {
   content: "•";
   color: hsl(274, 82%, 60%);
   font-size: 1.2rem;
@@ -193,78 +193,63 @@ header .header-right .moon img {
   right: 1rem;
   top: 0.2rem;
 }
-
-.synonym-part {
-  display: flex;
-  flex-direction: row;
-  align-items: end;
-  margin-top: 1.5rem;
-}
-.synonym-part h4 {
+.meaning-section ul h4 {
   color: hsl(0, 0%, 51%);
   margin-right: 1rem;
   font-size: 1.2rem;
-}
-.synonym-part span {
-  color: hsl(274, 82%, 60%);
-}
-
-.verb-section .heading-verb {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  text-align: left;
-  margin-right: 2rem;
-  font-size: 1.5rem;
-  margin-top: 1.5rem;
-}
-.verb-section .heading-verb .part-of-speech-verb {
-  margin-right: 1rem;
-}
-.verb-section .heading-verb hr {
-  width: 100%;
-  height: 1px;
-  background-color: hsl(0, 0%, 91%);
-  margin-top: 0.5rem;
-  border: none;
-}
-.verb-section .meanings-part-verb {
-  margin-top: 1.5rem;
-}
-.verb-section .meanings-part-verb .meaning {
-  font-size: 1.3rem;
-}
-.verb-section .meanings-part-verb .list-of-meanings-verb {
-  margin-top: 1rem;
-}
-.verb-section .meanings-part-verb .list-of-meanings-verb li {
-  font-size: 1.1rem;
-  margin-top: 0.5rem;
+  font-weight: 500;
   margin-left: 1rem;
-  list-style-type: none;
-  justify-content: left;
-  text-align: left;
 }
-.verb-section .meanings-part-verb .list-of-meanings-verb li::before {
-  content: "•";
-  color: hsl(274, 82%, 60%);
-  font-size: 1.2rem;
-  position: relative;
-  right: 1rem;
-  top: 0.2rem;
-}
-.verb-section .example-part {
+
+.extras-section {
   display: flex;
   flex-direction: row;
   align-items: end;
   margin-top: 1.5rem;
 }
-.verb-section .example-part h4 {
+.extras-section h4 {
   color: hsl(0, 0%, 51%);
   margin-right: 1rem;
   font-size: 1.2rem;
+  font-weight: 500;
+}
+.extras-section span {
+  color: hsl(274, 82%, 60%);
 }
 
+/* 
+    //VERB SECTION
+    .verb-section{
+        .heading-verb{
+            @include headings;
+            .part-of-speech-verb{
+                margin-right: 1rem;
+            }
+            hr{
+               @include hr;
+            }
+        }
+        .meanings-part-verb{
+            margin-top: 1.5rem;
+            .meaning{
+                @include meaning;
+            }
+                .list-of-meanings-verb{
+                    margin-top: 1rem;
+                    li{
+                        @include meanings-list;                   
+                    }
+                }
+        }
+
+        .example-part{
+            @include synonym-example-div;
+            h4{
+                @include synonym-example-text;
+            }
+        }
+    }
+  */
 .final-bottom-margin {
   width: 100%;
   height: 1px;
@@ -272,6 +257,27 @@ header .header-right .moon img {
   margin-top: 0.5rem;
   border: none;
   margin-block: 1.5rem;
+}
+
+.error {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+.error img {
+  width: 15rem;
+}
+.error .err-title {
+  margin-top: 1rem;
+}
+.error .err-message {
+  margin-top: 1rem;
+}
+.error .err-res {
+  margin-top: 1rem;
 }
 
 .search-bar {

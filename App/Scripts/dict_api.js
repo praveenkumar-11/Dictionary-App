@@ -26,6 +26,9 @@ function play_audio(response){
                 break;
             }
         }
+        else{
+            alert("Audio Not Found !!");
+        }
     }
     return audio;
 }
@@ -46,6 +49,14 @@ async function dictionary(){
     const dict= await fetch("https://api.dictionaryapi.dev/api/v2/entries/en/"+word_elm);
     const response= await dict.json();
 
+    if(response.status !== 200){
+        console.log("error");
+        document.querySelector(".main-wrapper").style.display= "none";
+        document.querySelector(".error").style.display= "flex";
+        document.querySelector(".err-title").innerHTML= response.title;
+        document.querySelector(".err-message").innerHTML= response.message;
+        document.querySelector(".err-res").innerHTML= response.resolution;
+    }
 
     //******************** GETTING WORD & PHONETIC FROM DATA ****************************
     word_h1_elm.innerHTML= response[0].word; //  WORD USER SEARCHED
