@@ -4,7 +4,7 @@ function drop_down_function(){
     const current_font= document.querySelector(".current-font");
     const drop_down_con= document.querySelector(".drop-down-content");
     const fonts= document.querySelectorAll(".drop-down-content span");
-    const doc= document.querySelectorAll("*");
+    //const doc= document.querySelectorAll("*");
     const font_styles={
         serif: "'Lora', serif",
         sans_serif: "'Inter', sans-serif",
@@ -28,6 +28,7 @@ function drop_down_function(){
     for(let i=0; i<fonts.length; i++){
         fonts[i].addEventListener("click", (event)=>{
             event.preventDefault();
+            const doc= document.querySelectorAll("*");
             for(let j=0; j<doc.length; j++){
                 doc[j].style.fontFamily= font_fam[i];
             }

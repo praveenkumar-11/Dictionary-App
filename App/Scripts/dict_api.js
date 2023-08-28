@@ -1,103 +1,72 @@
-async function dictionary(){
-    const inp= document.querySelector(".search-box");
-    const word_h1= document.querySelector(".word");
-    const phonetic= document.querySelector(".phonetic");
-    const audio_div= document.querySelector(".word-right");
-    const audio= document.querySelector(".audio");
-    const word= inp.value;
+import elm_fact from "./elm_fact.js"; 
 
-    inp.blur();
-    console.log(word);
 
-    const dict= await fetch("https://api.dictionaryapi.dev/api/v2/entries/en/"+word);
-    const response= await dict.json();
-    word_h1.innerHTML= response[0].word;
+function get_phonetic(response){
+    //  CODE TO FIND PHONETIC FROM JSON DATA
+    let phonetic;
     for(let i=0; i<response[0].phonetics.length; i++){
         if(response[0].phonetics[i].text != ""){
             if(typeof(response[0].phonetics[i].text) != "undefined"){
-                phonetic.innerHTML= response[0].phonetics[i].text;
+                phonetic= response[0].phonetics[i].text;
                 break;
             }
         }
     }
-
-    audio_div.addEventListener("click", ()=>{
-        //try{
-            audio.src= "";
-            for(let j=0; j<response[0].phonetics.length; j++){
-                if(response[0].phonetics[j].audio != ""){
-                    if(typeof(response[0].phonetics[j].audio) != "undefined"){ 
-                        audio.setAttribute("src", response[0].phonetics[j].audio);
-                        break;
-                    }
-                }
-            }
-            audio.play(); 
-    });
-    window.addEventListener("unhandledrejection", (err)=>{
-        console.log(err.reason);
-    });
-
-
-    //Noun Part
-    const part_of_spch= document.querySelector(".part-of-speech-noun");
-    const meanings= document.querySelector(".list-of-meanings");
-    while(meanings.hasChildNodes()){
-        meanings.removeChild(meanings.firstChild);
-    }
-    part_of_spch.innerHTML= response[0].meanings[0].partOfSpeech;
-    
-    for(let i=0 ; i<response[0].meanings[0].definitions.length ; i++){
-        const li= document.createElement("li");
-        const li_text= document.createTextNode(response[0].meanings[0].definitions[i].definition);
-        li.appendChild(li_text);
-        meanings.appendChild(li);
-    }
-
-    //Verb Part
-    const part_of_spch_verb= document.querySelector(".part-of-speech-verb");
-    const meanings_verb= document.querySelector(".list-of-meanings-verb");
-
-    if(typeof(response[0].meanings[1]) == "undefined"){
-        if(response[0].meanings[1].partOfSpeech == ""){
-            part_of_spch_verb.parentElement.parentElement.style.display= "none";
-        }
-    }
-    else{
-
-        part_of_spch_verb.innerHTML= response[0].meanings[1].partOfSpeech;
-
-        while(meanings_verb.hasChildNodes()){
-            meanings_verb.removeChild(meanings_verb.firstChild);
-        }
-        
-        for(let i=0 ; i<response[0].meanings[1].definitions.length ; i++){
-            const li_verb= document.createElement("li");
-            const li_text_verb= document.createTextNode(response[0].meanings[1].definitions[i].definition);
-            li_verb.appendChild(li_text_verb);
-            meanings_verb.appendChild(li_verb);
-        }
-            
-        const ex= document.querySelector(".example");
-        for(let i=0 ; i<response[0].meanings[1].definitions.length ; i++){
-            if(response[0].meanings[1].definitions[i].example != ""){
-                ex.innerHTML= response[0].meanings[0].definitions[i].example;
-            }
-        }
-    }
-
-
-    const syn= document.querySelector(".synonym-part span");
-    for(let i=0 ; i<response[0].meanings[0].definitions.length ; i++){
-        alert(response[0].meanings[0].definitions[i].synonyms);
-        if(response[0].meanings[0].definitions[i].synonyms != ""){
-            syn.innerHTML= response[0].meanings[0].definitions[i].synonyms;
-        }
-        else{
-            syn.innerHTML= response[0].meanings[0].synonyms[0];
-        }
-    }
-    
+    return phonetic;    
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////
+
+function play_audio(response){
+    let audio;
+    for(let i=0; i<response[0].phonetics.length; i++){
+        if(response[0].phonetics[i].audio != ""){
+            if(typeof(response[0].phonetics[i].audio) != "undefined"){ 
+                audio= response[0].phonetics[i].audio;
+                break;
+            }
+        }
+    }
+    return audio;
+}
+////////////////////////////////////////////////////////////////////////////////////////////
+
+
+async function dictionary(){
+    const inp= document.querySelector(".search-box");
+    const word_h1_elm= document.querySelector(".word");
+    const phonetic_elm= document.querySelector(".phonetic");
+    const audio_div= document.querySelector(".word-right");
+    const audio_elm= document.querySelector(".audio");
+    const word_elm= inp.value;
+
+    inp.blur();
+
+    //******************** FETCHING DATA FROM API ***************************************
+    const dict= await fetch("https://api.dictionaryapi.dev/api/v2/entries/en/"+word_elm);
+    const response= await dict.json();
+
+
+    //******************** GETTING WORD & PHONETIC FROM DATA ****************************
+    word_h1_elm.innerHTML= response[0].word; //  WORD USER SEARCHED
+    phonetic_elm.innerHTML= get_phonetic(response);
+
+
+    //******************** GETTING AUDIO FROM DATA **************************************
+    audio_div.addEventListener("click", ()=>{
+        const audio= play_audio(response);
+        audio_elm.src= audio;
+        audio_elm.play(); 
+    });
+
+
+    const meanings= response[0].meanings.length;
+    const main= document.querySelector(".definitions");
+    while(main.hasChildNodes()){
+        main.removeChild(main.firstChild);
+    }
+    for(let i=0 ; i<meanings ; i++){
+        elm_fact(response, i);
+    }
+}
 export default dictionary;
