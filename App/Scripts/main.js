@@ -10,7 +10,8 @@ search_box.addEventListener("change", dictionary);
 
 
 window.addEventListener("load", ()=>{
-   search_box.focus(); 
+   search_box.focus();
+   dictionary("hello");
 });
 
 
@@ -21,7 +22,6 @@ drop_down_function();
 //DARK MODE TOGGLE
 const toggle_btn= document.querySelector("input[type=checkbox]");
 toggle_btn.addEventListener("change", (evt) => {
-   console.log(toggle_btn.checked);
    if(toggle_btn.checked){
       document.documentElement.setAttribute("data-theme" , "dark");
    }

@@ -156,6 +156,7 @@ header .header-right .moon img {
   text-align: left;
   margin-right: 2rem;
   font-size: 1.5rem;
+  font-style: italic;
   margin-top: 1.5rem;
   color: var(--Black);
 }
