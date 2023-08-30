@@ -9,7 +9,7 @@
     background-color: map-get($primary, "Light-Violet");
 }
 body{
-    background-color: map-get($primary, "White");
+    background-color: var(--White);
     margin-inline: auto;
     width: min(800px, 90%);
 }

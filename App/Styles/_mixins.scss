@@ -6,6 +6,7 @@
     margin-right: 2rem;
     font-size: 1.5rem;
     margin-top: 1.5rem;
+    color: var(--Black);
 }
 @mixin part-of-speech{
     margin-right: 2rem;
@@ -13,6 +14,7 @@
 }
 @mixin meaning{
     font-size: 1.3rem;
+    color: var(--Black);
 }
 @mixin meanings-list{
     font-size: 1.1rem;
@@ -21,6 +23,7 @@
     list-style-type: none;
     justify-content: left;
     text-align: left;
+    color: var(--Black);
     &::before{
         content: "\2022";
         color: map-get($primary, "Dark-Violet");
@@ -34,9 +37,11 @@
 @mixin hr{
     width: 100%;
     height: 1px;
-    background-color: map-get($gray, "Gray-200");
+    background-color: var(--line);
     margin-top: 0.5rem;
     border: none;
+    outline: none;
+    color: transparent;
 }
 @mixin synonym-example-div{
     display: flex;

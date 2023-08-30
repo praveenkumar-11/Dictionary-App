@@ -1,0 +1,20 @@
+html[data-theme= "light"]{
+    --Dark-Violet: #{map-get($primary, "Dark-Violet")};
+    --Black: #{map-get($gray, "Gray-700")};
+    --input-bg: #{map-get($gray, "Gray-150")};
+    --input-focus: #{map-get($primary, "Dark-Violet")};
+    --Light-Violet : #{map-get($primary, "Light-Violet")};
+    --White : #{map-get($primary, "White")};
+    --shadow: #{map-get($gray, "Shadow")};
+    --line: #{map-get($gray, "Gray-200")};
+}
+html[data-theme= "dark"]{
+    --Dark-Violet : #{map-get($primary, "Dark-Violet")};
+    --Black: #{map-get($primary, "White")};
+    --White : #{map-get($gray, "Gray-700")};
+    --input-bg: #{map-get($gray, "Gray-600")};
+    --input-focus: #{map-get($primary, "White")};
+    --Light-Violet : #{map-get($primary, "Medium-Violet")};
+    --shadow: #{map-get($primary, "Dark-Violet")};
+    --line: #{map-get($gray, "Gray-500")};
+}

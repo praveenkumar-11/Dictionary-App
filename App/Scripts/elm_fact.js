@@ -1,17 +1,17 @@
-function get_meanings(resp, meaning_list, i){
+function get_meanings(resp, meaning_list, i, j){
     while(meaning_list.hasChildNodes()){
         meaning_list.removeChild(meaning_list.firstChild);
     }
 
-    if(resp[0].meanings[i].definitions.length != 0){
-        for(let j=0 ; j<resp[0].meanings[i].definitions.length ; j++){
-            const def= resp[0].meanings[i].definitions[j].definition;
-            const example= resp[0].meanings[i].definitions[j].example;
+    if(resp[j].meanings[i].definitions.length != 0){
+        for(let k=0 ; k<resp[j].meanings[i].definitions.length ; k++){
+            const def= resp[j].meanings[i].definitions[k].definition;
+            const example= resp[j].meanings[i].definitions[k].example;
 
             if(def != ""){
                 if(typeof(def) != "undefined"){
                     const li= document.createElement("li");
-                    const li_txt= document.createTextNode(resp[0].meanings[i].definitions[j].definition);
+                    const li_txt= document.createTextNode(resp[j].meanings[i].definitions[k].definition);
                     li.appendChild(li_txt);
                     meaning_list.appendChild(li);
                 }
@@ -20,7 +20,7 @@ function get_meanings(resp, meaning_list, i){
             if(example != ""){
                 if(typeof(example) != "undefined"){
                     const ex= document.createElement("h4");
-                    const ex_txt= document.createTextNode(resp[0].meanings[i].definitions[j].example);
+                    const ex_txt= document.createTextNode(resp[j].meanings[i].definitions[k].example);
                     ex.appendChild(ex_txt);
                     meaning_list.appendChild(ex);
                 }
@@ -29,14 +29,17 @@ function get_meanings(resp, meaning_list, i){
     }
 }
 
-function get_syn_ant(resp, i,h4, span){
-    if(resp[0].meanings[i].definitions.length != 0){
-        for(let j=0 ; j<resp[0].meanings[i].definitions.length ; j++){
-            const synonyms= resp[0].meanings[i].definitions[j].synonyms;
-            const synonyms_2= resp[0].meanings[i].synonyms;
-            const antonyms= resp[0].meanings[i].definitions[j].antonyms;
-            const antonyms_2= resp[0].meanings[i].antonyms;
-            const example= resp[0].meanings[i].definitions[j].example;
+function get_syn_ant(resp, i, j, h4, span, h4_ant, span_ant, syn_div, ant_div
+    ){
+
+    if(resp[j].meanings[i].definitions.length != 0){
+        for(let k=0 ; k<resp[j].meanings[i].definitions.length ; k++){
+            let a= resp[j].meanings.find((s)=>{return s.synonyms;})
+            const synonyms= resp[j].meanings[i].definitions[k].synonyms;
+            const synonyms_2= resp[j].meanings[i].synonyms;
+            const antonyms= resp[j].meanings[i].definitions[k].antonyms;
+            const antonyms_2= resp[j].meanings[i].antonyms;
+            const example= resp[j].meanings[i].definitions[k].example;
 
             if(synonyms != ""){
                 if(typeof(synonyms) != "undefined"){
@@ -51,25 +54,22 @@ function get_syn_ant(resp, i,h4, span){
                 }
             }
             else{
-                synonyms.innerHTML= "";
-                synonyms_2.innerHTML= "";
+                syn_div.style.display= "none";
             }
-
             if(antonyms != ""){
                 if(typeof(antonyms) != "undefined"){
-                    h4.innerHTML= "Antonyms";
-                    span.innerHTML= antonyms;
+                    h4_ant.innerHTML= "Antonyms";
+                    span_ant.innerHTML= antonyms;
                 }
             }
             else if(antonyms_2 != ""){
                 if(typeof(antonyms_2) != "undefined"){
-                    h4.innerHTML= "Antonyms";
-                    span.innerHTML= antonyms_2;
+                    h4_ant.innerHTML= "Antonyms";
+                    span_ant.innerHTML= antonyms_2;
                 }
             }
             else{
-                antonyms.innerHTML= "";
-                antonyms_2.innerHTML= "";
+                ant_div.style.display= "none";
             }
         }
     }
@@ -77,7 +77,7 @@ function get_syn_ant(resp, i,h4, span){
 
 
 
-function elm_fact(resp, i){
+function elm_fact(resp, i, j){
     const main= document.querySelector(".definitions");
 
     const section= document.createElement("section");
@@ -87,7 +87,7 @@ function elm_fact(resp, i){
     section_2.setAttribute("class", "heading-section");
 
     const h3= document.createElement("h3");
-    h3.innerHTML= resp[0].meanings[i].partOfSpeech;
+    h3.innerHTML= resp[j].meanings[i].partOfSpeech;
 
     const hr= document.createElement("hr");
     const div_1= document.createElement("div");
@@ -97,14 +97,18 @@ function elm_fact(resp, i){
     p.innerHTML= "Meaning";
 
     const ul= document.createElement("ul");
-    get_meanings(resp , ul, i);
+    get_meanings(resp , ul, i, j);
 
 
     const div_2= document.createElement("div");
     div_2.setAttribute("class", "extras-section");
+    const syn_div= document.createElement("div");
+    const ant_div= document.createElement("div");
     const h4= document.createElement("h4");
     const span= document.createElement("span");
-    get_syn_ant(resp, i, h4, span);
+    const h4_ant= document.createElement("h4");
+    const span_ant= document.createElement("span");
+    get_syn_ant(resp, i, j, h4, span, h4_ant, span_ant, syn_div, ant_div);
 
 
     section_2.appendChild(h3);
@@ -113,8 +117,13 @@ function elm_fact(resp, i){
     div_1.appendChild(p);
     div_1.appendChild(ul);
 
-    div_2.appendChild(h4);
-    div_2.appendChild(span);
+    syn_div.appendChild(h4);
+    syn_div.appendChild(span);
+    ant_div.appendChild(h4_ant);
+    ant_div.appendChild(span_ant);
+
+    div_2.appendChild(syn_div);
+    div_2.appendChild(ant_div);
 
     section.appendChild(section_2);
     section.appendChild(div_1);

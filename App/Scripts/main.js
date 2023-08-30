@@ -16,3 +16,16 @@ window.addEventListener("load", ()=>{
 
 // Funtion for Drop Down Menu 
 drop_down_function();
+
+
+//DARK MODE TOGGLE
+const toggle_btn= document.querySelector("input[type=checkbox]");
+toggle_btn.addEventListener("change", (evt) => {
+   console.log(toggle_btn.checked);
+   if(toggle_btn.checked){
+      document.documentElement.setAttribute("data-theme" , "dark");
+   }
+   else{
+      document.documentElement.setAttribute("data-theme" , "light");
+   }
+});
