@@ -1,5 +1,9 @@
-$font-family: (
-    "Mono": "'Inconsolata', monospace",
-    "Sans-Serif": "'Inter', sans-serif",
-    "Serif": "'Lora', serif"
+$mono: 'Inconsolata', monospace;
+$sans-serif: 'Inter', sans-serif;
+$serif: 'Lora', serif;
+
+$weights: (
+    "Light": 500,
+    "Bold": 700,
+    "Black": 900
 );

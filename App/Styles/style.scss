@@ -1,3 +1,98 @@
 @import "colors";
 @import "fonts";
 @import "reset";
+@import "header";
+@import "meaningPart";
+@import "mixins";
+@import "error";
+@import "colorTheme";
+
+.search-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    .search-box{
+        z-index: 10;
+        height: 4rem;
+        width: 100%;
+        border: none;
+        background-color: var(--input-bg);
+        color: var(--Black);
+        font-size: 1.2rem;
+        font-weight: map-get($weights, "Black");
+        letter-spacing: 0.05rem;
+        border-radius: 15px;
+        padding-left: 1rem;
+        padding-right: 3rem;
+        &:focus{
+            outline: 2px solid var(--input-focus);
+        }
+    }
+    .search-btn{
+        z-index: 15;
+        border: none;
+        background-color: transparent;
+        outline: none;
+        img{
+            position: absolute;
+            transform: translate(-3rem, -1rem);
+            width: 2rem;
+            cursor: pointer;
+        }
+    }
+}
+
+
+//Main content
+main{
+    .main-top{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1.5rem;
+        .word-left{
+            margin-left: 0;
+            margin-right: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            .word{
+                font-size: 3.5rem;
+                font-weight: map-get($weights, "Bold");
+                color: var(--Black);
+            }
+            .phonetic{
+                color: map-get($primary, "Dark-Violet");
+                font-size: 1.5rem;
+            }
+        }
+        .word-right{
+            background-color: var(--Light-Violet);
+            width: 5rem;
+            height: 5rem;
+            border-radius: 50%;
+            text-align: center;
+            align-items: center;
+            cursor: pointer;
+            &:hover{
+                background-color: map-get($primary, "Dark-Violet");
+            }
+            &:hover > img{
+                filter: brightness(100);
+            }
+            img{
+                width: 1.3rem;
+                height: 100%;
+                margin-left: 0.3rem;
+            }
+            /* audio{
+
+            } */
+        }
+    }
+}
+
+

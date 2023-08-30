@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme= "light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +14,74 @@
     <title>Dictionary-App</title>
 </head>
 <body>
-    <script src="App/Scripts/script.js"></script>
+
+        <header>
+            <div class="logo">
+                <a href="#"><img src="Assets/Icons/book-icon.svg" alt="Logo" class="logo-icon"></a>
+            </div>
+
+            <div class="header-right">
+                <div class="fonts">
+                    <button class="current-font-and-icon">
+                        <p class="current-font">Serif</p>
+                        <img src="Assets/Icons/drop-down-icon.svg" alt="Fonts" class="drop-down-icon">
+                    </button>
+                    <div class="drop-down-content">
+                        <span class= "serif">Serif</span>
+                        <span class="sans-serif">Sans-Serif</span>
+                        <span class="mono">Mono</span>
+                    </div>
+                </div>
+                <div class="line"></div>
+                <div class="toggle">
+                    <label class="toggle-bar">
+                        <input type="checkbox">
+                        <span></span>
+                    </label>
+                </div>
+                <div class="moon">
+                    <img src="Assets/Icons/moon-icon.svg" alt="" class="moon-icon">
+                </div>
+            </div>
+        </header>
+
+
+        <div class="search-bar">
+            <input type="text" placeholder= "Search for any word..."name="search" class="search-box">
+            <button class="search-btn"><img src="Assets/Icons/search-icon.svg" alt="Search"></button>
+        </div>
+
+
+        <!------------------------------------- WORD & AUDIO PART START ------------------------------------------------>
+        <main class="main-wrapper" style="display: none">
+            <div class="main-top">
+                <div class="word-left">
+                    <h1 class="word"></h1>
+                    <span class="phonetic"></span>
+                </div>
+                <div class="word-right">
+                    <img src="Assets/Icons/play-icon.svg" alt="Play">
+                    <audio class= "audio">
+                        You Browser Doesn't Support Audio
+                    </audio>
+                </div>    
+            </div>
+            <!------------------------------------- WORD & AUDIO PART END ------------------------------------------------>
+
+            <main class="definitions"></main>
+        </main>
+
+
+        <main class="error">
+            <img src="/Assets/Icons/not_found_err.svg" alt="Page Not Found">
+            <h1 class="err-title"></h1>
+            <p class="err-message"></p>
+            <p class="err-res"></p>
+        </main>
+
+        
+        <hr class="final-bottom-margin">
+
+    <script type="module" src="App/Scripts/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,23 @@
+.error{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+    text-align: center;
+    img{
+        width: 15rem;
+    }
+    .err-title{
+        margin-top: 1rem;
+        color: var(--Black);
+    }
+    .err-message{
+        margin-top: 1rem;
+        color: var(--Black);
+    }
+    .err-res{
+        margin-top: 1rem;
+        color: var(--Black);
+    }
+}

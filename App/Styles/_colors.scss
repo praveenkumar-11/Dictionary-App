@@ -1,5 +1,6 @@
 $primary: (
     "Dark-Violet": hsl(274, 82%, 60%),
+    "Medium-Violet": hsl(275, 52%, 16%),
     "Light-Violet": hsl(276, 81%, 90%),
     "Dark-grey": hsl(0, 0%, 46%),
     "red": hsl(0, 100%, 66%),
@@ -7,10 +8,12 @@ $primary: (
 );
 $gray: (
     "Gray-100": hsl(0, 0%, 98%),
+    "Gray-150": hsl(0, 0%, 96%),
     "Gray-200": hsl(0, 0%, 91%),
     "Gray-300": hsl(0, 0%, 51%),
     "Gray-400": hsl(0, 0%, 23%),
     "Gray-500": hsl(0, 0%, 18%),
     "Gray-600": hsl(0, 0%, 12%),
-    "Gray-700": hsl(0, 0%, 2%)
+    "Gray-700": hsl(0, 0%, 2%),
+    "Shadow" : hsla(210, 8%, 62%, 0.2)
 );

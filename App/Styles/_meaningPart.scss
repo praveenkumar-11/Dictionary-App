@@ -1,0 +1,86 @@
+@import "mixins";
+
+//.meanings{
+  //  margin-top: 1.5rem;
+    .heading-section{
+        @include headings;
+        h3{
+            margin-right: 1rem;
+        }
+        hr{
+           @include hr;
+        }
+    }
+    .meaning-section{
+        margin-top: 1.5rem;
+        p{
+            @include meaning;
+        }
+            ul{
+                margin-top: 1rem;
+                li{
+                    @include meanings-list;
+                }
+                h4{
+                    @include synonym-example-text;
+                    margin-left: 1rem;
+                }
+            }
+    }
+    .extras-section{
+        @include synonym-example-div;
+        flex-direction: column;
+        align-items: start;
+        gap: 2rem;
+        div{
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+        }
+        h4{
+            @include synonym-example-text
+        }
+        span{
+            color: map-get($primary, "Dark-Violet");
+        }
+    }
+
+/* 
+    //VERB SECTION
+    .verb-section{
+        .heading-verb{
+            @include headings;
+            .part-of-speech-verb{
+                margin-right: 1rem;
+            }
+            hr{
+               @include hr;
+            }
+        }
+        .meanings-part-verb{
+            margin-top: 1.5rem;
+            .meaning{
+                @include meaning;
+            }
+                .list-of-meanings-verb{
+                    margin-top: 1rem;
+                    li{
+                        @include meanings-list;                   
+                    }
+                }
+        }
+    
+        .example-part{
+            @include synonym-example-div;
+            h4{
+                @include synonym-example-text;
+            }
+        }
+    }
+  */   
+//}
+
+.final-bottom-margin{
+    @include hr;
+    margin-block: 1.5rem;
+}
