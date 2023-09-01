@@ -29,7 +29,7 @@ function get_meanings(resp, meaning_list, i, j){
     }
 }
 
-function get_syn_ant(resp, i, j, h4, span, h4_ant, span_ant, syn_div, ant_div
+function get_syn_ant(resp, i, j, h4, p_syn, h4_ant, p_ant, syn_div, ant_div
     ){
 
     if(resp[j].meanings[i].definitions.length != 0){
@@ -44,13 +44,13 @@ function get_syn_ant(resp, i, j, h4, span, h4_ant, span_ant, syn_div, ant_div
             if(synonyms != ""){
                 if(typeof(synonyms) != "undefined"){
                     h4.innerHTML= "Synonyms";
-                    span.innerHTML= synonyms;
+                    p_syn.innerHTML= synonyms;
                 }
             }
             else if(synonyms_2 != ""){
                 if(typeof(synonyms_2) != "undefined"){
                     h4.innerHTML= "Synonyms";
-                    span.innerHTML= synonyms_2;
+                    p_syn.innerHTML= synonyms_2;
                 }
             }
             else{
@@ -59,13 +59,13 @@ function get_syn_ant(resp, i, j, h4, span, h4_ant, span_ant, syn_div, ant_div
             if(antonyms != ""){
                 if(typeof(antonyms) != "undefined"){
                     h4_ant.innerHTML= "Antonyms";
-                    span_ant.innerHTML= antonyms;
+                    p_ant.innerHTML= antonyms;
                 }
             }
             else if(antonyms_2 != ""){
                 if(typeof(antonyms_2) != "undefined"){
                     h4_ant.innerHTML= "Antonyms";
-                    span_ant.innerHTML= antonyms_2;
+                    p_ant.innerHTML= antonyms_2;
                 }
             }
             else{
@@ -103,12 +103,14 @@ function elm_fact(resp, i, j){
     const div_2= document.createElement("div");
     div_2.setAttribute("class", "extras-section");
     const syn_div= document.createElement("div");
+    syn_div.setAttribute("class", "synonyms");
     const ant_div= document.createElement("div");
+    ant_div.setAttribute("class", "antonyms");
     const h4= document.createElement("h4");
-    const span= document.createElement("span");
+    const p_syn= document.createElement("p");
     const h4_ant= document.createElement("h4");
-    const span_ant= document.createElement("span");
-    get_syn_ant(resp, i, j, h4, span, h4_ant, span_ant, syn_div, ant_div);
+    const p_ant= document.createElement("p");
+    get_syn_ant(resp, i, j, h4, p_syn, h4_ant, p_ant, syn_div, ant_div);
 
 
     section_2.appendChild(h3);
@@ -118,9 +120,9 @@ function elm_fact(resp, i, j){
     div_1.appendChild(ul);
 
     syn_div.appendChild(h4);
-    syn_div.appendChild(span);
+    syn_div.appendChild(p_syn);
     ant_div.appendChild(h4_ant);
-    ant_div.appendChild(span_ant);
+    ant_div.appendChild(p_ant);
 
     div_2.appendChild(syn_div);
     div_2.appendChild(ant_div);

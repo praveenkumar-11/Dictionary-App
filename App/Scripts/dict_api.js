@@ -60,8 +60,9 @@ async function dictionary(word){
     inp.blur();
 
     //******************** FETCHING DATA FROM API ***************************************
-    const dict= await fetch("https://api.dictionaryapi.dev/api/v2/entries/en/"+word_elm);
-    const response= await dict.json();
+
+        const dict= await fetch("https://api.dictionaryapi.dev/api/v2/entries/en/"+word_elm);
+        const response= await dict.json();
     
     //IF API RESPONDED WITH CODE NOT EQUALS TO 200 (WHICH MEANS 'NO DEFINITIONS FOUND') 
     //console.log(response.status);

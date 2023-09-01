@@ -15,6 +15,9 @@ header{
         align-items: center;
         margin-right: 1px;
         margin-left: auto;
+        @media (max-width: 333px){
+            margin-left: 0;
+        }
         .fonts{
             display: flex;
             flex-direction: column;
@@ -53,6 +56,9 @@ header{
                 box-shadow: var(--shadow) 0px 8px 24px;
                 z-index: 5;
                 gap: 0.5rem;
+                @media (max-width: 333px){
+                    margin-left: 0;
+                }
                 span{
                     cursor: pointer;
                     width: 100%;

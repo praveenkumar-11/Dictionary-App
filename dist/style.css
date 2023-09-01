@@ -33,6 +33,11 @@ header .header-right {
   margin-right: 1px;
   margin-left: auto;
 }
+@media (max-width: 333px) {
+  header .header-right {
+    margin-left: 0;
+  }
+}
 header .header-right .fonts {
   display: flex;
   flex-direction: column;
@@ -71,6 +76,11 @@ header .header-right .fonts .drop-down-content {
   box-shadow: var(--shadow) 0px 8px 24px;
   z-index: 5;
   gap: 0.5rem;
+}
+@media (max-width: 333px) {
+  header .header-right .fonts .drop-down-content {
+    margin-left: 0;
+  }
 }
 header .header-right .fonts .drop-down-content span {
   cursor: pointer;
@@ -160,6 +170,11 @@ header .header-right .moon img {
   margin-top: 1.5rem;
   color: var(--Black);
 }
+@media (max-width: 500px) {
+  .heading-section {
+    font-size: 1rem;
+  }
+}
 .heading-section h3 {
   margin-right: 1rem;
 }
@@ -180,12 +195,17 @@ header .header-right .moon img {
   font-size: 1.3rem;
   color: var(--Black);
 }
+@media (max-width: 500px) {
+  .meaning-section p {
+    font-size: 1.1rem;
+  }
+}
 .meaning-section ul {
   margin-top: 1rem;
 }
 .meaning-section ul li {
   font-size: 1.1rem;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   margin-left: 1rem;
   list-style-type: none;
   justify-content: left;
@@ -200,12 +220,22 @@ header .header-right .moon img {
   right: 1rem;
   top: 0.2rem;
 }
+@media (max-width: 500px) {
+  .meaning-section ul li {
+    font-size: 1rem;
+  }
+}
 .meaning-section ul h4 {
   color: hsl(0, 0%, 51%);
   margin-right: 1rem;
   font-size: 1.2rem;
   font-weight: 500;
   margin-left: 1rem;
+}
+@media (max-width: 500px) {
+  .meaning-section ul h4 {
+    font-size: 1rem;
+  }
 }
 
 .extras-section {
@@ -221,6 +251,7 @@ header .header-right .moon img {
   display: flex;
   flex-direction: row;
   align-items: baseline;
+  width: 100%;
 }
 .extras-section h4 {
   color: hsl(0, 0%, 51%);
@@ -228,8 +259,15 @@ header .header-right .moon img {
   font-size: 1.2rem;
   font-weight: 500;
 }
-.extras-section span {
+@media (max-width: 500px) {
+  .extras-section h4 {
+    font-size: 1rem;
+  }
+}
+.extras-section p {
   color: hsl(274, 82%, 60%);
+  word-break: break-all;
+  white-space: normal;
 }
 
 /* 
@@ -346,6 +384,11 @@ html[data-theme=dark] {
 .search-bar .search-box:focus {
   outline: 2px solid var(--input-focus);
 }
+@media (max-width: 500px) {
+  .search-bar .search-box {
+    font-size: 1rem;
+  }
+}
 .search-bar .search-btn {
   z-index: 15;
   border: none;
@@ -357,6 +400,12 @@ html[data-theme=dark] {
   transform: translate(-3rem, -1rem);
   width: 2rem;
   cursor: pointer;
+}
+@media (max-width: 500px) {
+  .search-bar .search-btn img {
+    width: 1.5rem;
+    transform: translate(-3rem, -0.8rem);
+  }
 }
 
 main .main-top {
@@ -377,10 +426,21 @@ main .main-top .word-left .word {
   font-size: 3.5rem;
   font-weight: 700;
   color: var(--Black);
+  word-break: break-all;
+}
+@media (max-width: 500px) {
+  main .main-top .word-left .word {
+    font-size: 2.5rem;
+  }
 }
 main .main-top .word-left .phonetic {
   color: hsl(274, 82%, 60%);
   font-size: 1.5rem;
+}
+@media (max-width: 500px) {
+  main .main-top .word-left .phonetic {
+    font-size: 1.2rem;
+  }
 }
 main .main-top .word-right {
   background-color: var(--Light-Violet);

@@ -36,12 +36,15 @@
             display: flex;
             flex-direction: row;
             align-items: baseline;
+            width: 100%;
         }
         h4{
-            @include synonym-example-text
+            @include synonym-example-text;
         }
-        span{
+        p{
             color: map-get($primary, "Dark-Violet");
+            word-break: break-all;
+            white-space: normal;
         }
     }
 
